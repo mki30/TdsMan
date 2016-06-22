@@ -1,0 +1,104 @@
+//$('#ddlCity').bind("change", function ()
+//{
+//    SaveInLocalStorage("CityVal", $(this).val());
+//    //$.cookie("CityVal", $(this).val(),1000000);
+//});
+            
+Parse Json Object In Javascript-
+
+GetTourPakage()
+        {
+            $('#loading-image').show();
+            $.ajax({
+               		 url: "GetData.aspx?Action=GetTours&Data1="+$("#selectCities").val(),
+		 cache: false,
+		 success: function (data)
+                		{
+                    		data = data.replace('~', '');
+                    		var json = $.parseJSON(data);
+		                   console.log(json);
+			 var str = "";
+		                   var ctr = "1";
+
+                  	 $(json).each(function ()
+                    {
+                        var id = ctr;
+                        var day = 0;
+                        var itinerary = $.parseJSON(this.Itinerary);
+
+                        str1 = "";
+                        str1 += '<div id="' + ctr + '" class="collapse">';
+                        str1 += '<table class="table" style="background-color:white;margin-bottom:0px;">';
+
+                        $(itinerary).each(function ()
+                        {
+                            str1 += '<tr><td>Day:' + this.Day + '</td><td>' + this.CityDescription + "</td><td style='width:90px;'>" + this.RouteDate + "</td></tr>";
+                            day++;
+                        });
+                        str1 += '</table></div>';
+
+                        str += '<div class="row-fluid alert-warning" style="border-top:2px double #F7CEBB; font-weight:bold;">';
+                        str += '<div class="span10" style="padding:2px 0px 2px 5px;"><table><tr><td style="width:60px;">' + this.PackageCode + '</td><td>:&nbsp;</td><td>' + this.Description + '</td><td>(' + day + '&nbsp;Days&nbsp;,' + 				(day - 1) + '&nbsp;Nights)<td></tr></table></div>';
+                        str += '<div class="sapn2"><button type="button" class="btn btn-link pull-right" data-toggle="collapse" data-target="#' + ctr + '" style="margin-right:10px; display:inline;">View</button></div>';
+                        str += '</div>';
+
+                        str += '<div class="row-fluid"><div class="span10" style="padding:5px;text-align: justify;">' + this.Details + '</div>';
+                        str += '<div class="span2"><img style="width:94%;height:100px;" class="img-polaroid" src=' + this.ImageURL + ' alt="Image" onerror="imgError(this);"></div></div>';
+
+                        ctr++;
+                        str += str1;
+                    });
+                    $('#package').html(str);
+                },
+                complete: function ()
+                {
+                    SaveInLocalStorage("SelectedCity", $("#selectCities").val());
+                    $('#loading-image').hide();
+                },
+                error: function (xhr, ajaxOptions, thrownError)
+                {
+                    alert(xhr.status);
+                    //alert(thrownError);
+                }
+             });
+        }
+
+
+Eqi=uivalent In C#
+-------------------
+
+ var json = new WebClient().DownloadString("http://railtourismindia.erail.in/GetData.aspx?Action=GetPackagesForCity&Data1=" + City);
+        object[] list = (object[])new JavaScriptSerializer().DeserializeObject(json.ToString());
+
+        StringBuilder str = new StringBuilder();
+        StringBuilder str1 = new StringBuilder();
+        int ctr = 1;
+        foreach (object o in list)
+        {
+            int id = ctr;
+            int day = 0;
+            str1.Append("<div id=" + ctr + " class='collapse'>");
+            str1.Append("<table class='table'>");
+            Dictionary<string, object> obj = (Dictionary<string, object>)o;
+
+            String itdata = (String)obj["Itinerary"];
+            object[] itnerarylist = (object[])new JavaScriptSerializer().DeserializeObject(itdata);
+            foreach (object it in itnerarylist)
+            {
+                Dictionary<string, object> itobj = (Dictionary<string, object>)it;
+                str1.Append("<tr><td>day:" + itobj["Day"] + "</td><td>" + itobj["CityDescription"] + "</td><td style='width:90px;'>" + itobj["RouteDate"] + "</td></tr>");
+                day++;
+            }
+            str1.Append("</table></div>");
+            str.Append("<div class='row-fluid alert-warning packageHead'>");
+            str.Append("<div class='span10' style='padding:2px 0px 2px 5px;'><table><tr><td style='width:60px;'>" + obj["PackageCode"] + "</td><td>:&nbsp;</td><td>" + obj["Description"] + "</td><td>(" + day + "&nbsp;Days&nbsp;," + (day - 		1) + "&nbsp;Nights)<td></tr></table></div>");
+            str.Append("<div class='sapn2'><button type='button' class='btn btn-link pull-right' data-toggle='collapse' data-target='#" + ctr + "' style='margin-right:10px; display:inline;'>View</button></div>");
+            str.Append("</div>");
+            str.Append("<div class='row-fluid'><div class='span10' style='padding:5px;text-align: justify;'>" + obj["Details"] + "</div>");
+            str.Append("<div class='span2'><img style='width:94%;height:100px;' class='img-polaroid' src=" + obj["ImageURL"] + " alt='Image' onerror='imgError(this);'></div></div>");
+            str.Append(str1);
+            ctr++;
+            Literal1.Text = str.ToString();  Cmn.WriteClientScript(this, "var city=\"" + City + "\";");
+       }
+
+  

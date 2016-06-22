@@ -1,0 +1,3 @@
+Sir  i  have  some  isssue i want to discuss with you-
+In databse that you have given there is no record exist in  TRN_DEDUCTEE_DETAIL but some records are available in TEMP_ TRN_DEDUCTEE_DETAIL .
+In traial version of datatabse no such TEMP_ TRN_DEDUCTEE_DETAIL exist.Currently i am importing challan detaul info  from TRN_DEDUCTEE_DETAIL.

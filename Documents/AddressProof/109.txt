@@ -1,0 +1,13 @@
+ //void AddBookMark(string filename, string bookmark)
+    //{
+    //    Bitmap bmp = new Bitmap(filename);
+    //    Font fnt = new Font("Arial", 50);
+    //    SolidBrush brush = new SolidBrush(Color.White);
+    //    using (Graphics Gr = Graphics.FromImage((System.Drawing.Image)bmp))
+    //    {
+    //        Gr.DrawString(bookmark, fnt, brush, 100, 100);
+    //    }
+    //    bmp.Save(filename, ImageFormat.Png);
+    //    fnt.Dispose();
+    //    brush.Dispose();
+    //}

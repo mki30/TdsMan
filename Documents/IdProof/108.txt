@@ -1,0 +1,533 @@
+<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="PanApplicationFormNew.aspx.cs" Inherits="PanApplicationFormNew" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <link href="css/master.css" rel="stylesheet" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div class="form_content" id="content">
+        <div class="progressimgdiv"><img src="images/progress_bar_main.png" width="537" height="34" align="center"></div>
+        <div class="tab1_div" style="clear:both"><span class="tab-numbering">1</span>PERSONAL INFORMATION</div>
+        <div class="section_div" style="border:1px solid #CCC;background-color:#FFFFFF">
+          <div class="category_section">
+            <div class="section_inner">
+              <table style="width:100%;">
+                <tbody><tr>
+                  <td class="row_left"><span class="category_applicant">Category of Applicant</span><span class="mandatory">*</span> <span class="tooltip tooltipstered"> <img src="images/help_icon.png" width="19" height="19"></span></td>
+                  <td colspan="3" class="category_pad"><div class="field_items">
+                      <input checked="checked" type="radio" name="category" value="1" id="category10">
+                      <label for="category10">Individuals</label>
+                    </div>
+                    <div class="field_items_s">
+                      <input type="radio" name="category" value="2" id="category11">
+                      <label for="category11">Army</label>
+                    </div>
+                    <div class="field_items_s">
+                      <input type="radio" name="category" value="3" id="category12">
+                      <label for="category12">Navy</label>
+                    </div>
+                    <div class="field_items_s">
+                      <input type="radio" name="category" value="4" id="category13">
+                      <label for="category13">Air Force</label>
+                    </div></td>
+                </tr>
+                <tr>
+                  <td class="fonttable"><span class="category_applicant">Name of the applicant</span><span class="mandatory">*</span> <span class="tooltip tooltipstered"> <img src="images/help_icon.png" width="19" height="19"></span></td>
+                  <td class="category_pad"><div class="medium">
+                      <input name="firstnameupp" placeholder="First Name" type="text" id="firstnameupp" onchange="upperMe('firstnameupp')" autocomplete="off" onkeypress="return lettersOnly(event)" onblur="initialvalidation('firstnameupp');" maxlength="25">
+                    </div></td>
+                  <td class="category_pad"><div class="medium">
+                      <input name="middlenameupp" placeholder="Middle Name" type="text" id="middlenameupp" class="txtup" onchange="upperMe('middlenameupp')" autocomplete="off" onkeypress="return lettersOnly(event)" onblur="initialvalidation('middlenameupp');" maxlength="25">
+                    </div></td>
+                  <td class="category_pad"><div class="medium">
+                      <input name="lastname" placeholder="Last Name" type="text" id="lastnameupp" class="txtup" onchange="upperMe('lastnameupp')" autocomplete="off" onkeypress="return lettersOnly(event)" onblur="initialvalidation('lastnameupp');" maxlength="25">
+                    </div></td>
+                  <td class="fonttable"><label for="dd">Date of Birth</label>
+                    <span class="mandatory">*</span></td>
+                  <td class="fonttable"><div class="medium">
+                      <select name="dd" id="dd" style="width: 50px; color: rgb(204, 204, 204);" onchange="ddchange();">
+                        <option value=""> DD
+                        </option><option value="01"> 1
+                        </option><option value="02"> 2
+                        </option><option value="03"> 3
+                        </option><option value="04"> 4
+                        </option><option value="05"> 5
+                        </option><option value="06"> 6
+                        </option><option value="07"> 7
+                        </option><option value="08"> 8
+                        </option><option value="09"> 9
+                        </option><option value="10"> 10
+                        </option><option value="11"> 11
+                        </option><option value="12"> 12
+                        </option><option value="13"> 13
+                        </option><option value="14"> 14
+                        </option><option value="15"> 15
+                        </option><option value="16"> 16
+                        </option><option value="17"> 17
+                        </option><option value="18"> 18
+                        </option><option value="19"> 19
+                        </option><option value="20"> 20
+                        </option><option value="21"> 21
+                        </option><option value="22"> 22
+                        </option><option value="23"> 23
+                        </option><option value="24"> 24
+                        </option><option value="25"> 25
+                        </option><option value="26"> 26
+                        </option><option value="27"> 27
+                        </option><option value="28"> 28
+                        </option><option value="29"> 29
+                        </option><option value="30"> 30
+                        </option><option value="31"> 31
+                      </option></select>
+                      <select name="mm" id="mm" onchange="mmchange()" style="width: 60px; color: rgb(204, 204, 204);">
+                        <option value=""> MM
+                        </option><option value="01"> JAN
+                        </option><option value="02"> FEB
+                        </option><option value="03"> MAR
+                        </option><option value="04"> APR
+                        </option><option value="05"> MAY
+                        </option><option value="06"> JUN
+                        </option><option value="07"> JUL
+                        </option><option value="08"> AUG
+                        </option><option value="09"> SEP
+                        </option><option value="10"> OCT
+                        </option><option value="11"> NOV
+                        </option><option value="12"> DEC
+                      </option></select>
+                      <input name="dob_year" id="dob_year" placeholder="YYYY" type="text" class="txtup" autocomplete="off" maxlength="4" onkeypress="return isNumber(event)">
+                    </div></td>
+                </tr>
+                <tr>
+                  <td class="fonttable"><label for="Print_firstname">Name on the PAN Card</label>
+                    <span class="mandatory">*</span><span class="tooltip tooltipstered"> <img src="images/help_icon.png" width="19" height="19"></span></td>
+                  <td colspan="2" class="category_pad"><div class="mediumss">
+                      <input name="print_firstname" id="print_firstname" placeholder="First Name" type="text" class="txtup" onchange="upperMe('print_firstname')" autocomplete="off" style="width:271px;" onkeypress="return lettersOnly(event)" maxlength="50">
+                    </div></td>
+                  <td class="category_pad"><div class="medium">
+                      <input name="print_lastname" id="print_lastname" placeholder="Last Name" type="text" class="txtup" onchange="upperMe('print_lastname')" autocomplete="off" readonly="readonly" disabled="disabled" onkeypress="return lettersOnly(event)">
+                    </div></td>
+                  <td class="fonttable">Gender<span class="mandatory">*</span></td>
+                  <td><div class="field_items_2">
+                      <input type="radio" name="gender" value="0" id="gender1">
+                      <label for="gender1">Male</label>
+                    </div>
+                    <div class="field_items_2">
+                      <input type="radio" name="gender" value="1" id="gender2">
+                      <label for="gender2">Female</label>
+                    </div></td>
+                </tr>
+                <tr>
+                  <td class="fonttable"><label for="chk">Any other name</label>
+                    <span href="#" class="tooltip tooltipstered"> <img src="images/help_icon.png" width="19" height="19"></span>
+                    <input type="checkbox" name="chk" id="chk" value="1" onclick="enableothernamenamediv()"></td>
+                  <td class="category_pad"><div class="medium">
+                      <input name="First other name" type="text" id="firstnameothr" class="txtup" onchange="upperMe('firstnameothr')" style="background-color:#E9E9E9" disabled="disabled" autocomplete="off" onkeypress="return lettersOnly(event)" onblur="initialvalidation('firstnameothr');" maxlength="25">
+                    </div></td>
+                  <td class="category_pad"><div class="medium">
+                      <input name="Middle other name" type="text" id="middlenameothr" class="txtup" onchange="upperMe('middlenameothr')" style="background-color:#E9E9E9" disabled="disabled" autocomplete="off" onkeypress="return lettersOnly(event)" onblur="initialvalidation('middlenameothr');" maxlength="25">
+                    </div></td>
+                  <td class="category_pad"><div class="medium">
+                      <input name="Last other name" type="text" id="lastnameothr" class="txtup" onchange="upperMe('lastnameothr')" style="background-color:#E9E9E9" disabled="disabled" autocomplete="off" onkeypress="return lettersOnly(event)" onblur="initialvalidation('lastnameothr');" maxlength="25">
+                    </div></td>
+                  <td class="fonttable">Marital Status<span class="mandatory">*</span></td>
+                  <td><div class="field_items_2">
+                      <input type="radio" name="maritalstatus" value="0" id="RadioGroup10">
+                      <label for="RadioGroup10" style="cursor:pointer">Single</label>
+                    </div>
+                    <div class="field_items_2">
+                      <input type="radio" name="maritalstatus" value="1" id="RadioGroup11">
+                      <label for="RadioGroup11">Married</label>
+                    </div></td>
+                </tr>
+                <tr>
+                  <td class="fonttable">Father's Name <span class="mandatory">*</span><span class="tooltip tooltipstered"> <img src="images/help_icon.png" width="19" height="19"></span></td>
+                  <td class="category_pad"><div class="medium">
+                      <input name="" id="father_fname" placeholder="First Name" type="text" class="txtup" onchange="upperMe('father_fname')" autocomplete="off" onkeypress="return lettersOnly(event)" onblur="initialvalidation('father_fname');" maxlength="25">
+                    </div></td>
+                  <td class="category_pad"><div class="medium">
+                      <input name="" id="father_mname" placeholder="Middle Name" type="text" class="txtup" onchange="upperMe('father_mname')" autocomplete="off" onkeypress="return lettersOnly(event)" onblur="initialvalidation('father_mname');" maxlength="25">
+                    </div></td>
+                  <td class="category_pad"><div class="medium">
+                      <input name="" id="father_lname" placeholder="Last Name" type="text" class="txtup" onchange="upperMe('father_lname')" autocomplete="off" onkeypress="return lettersOnly(event)" onblur="initialvalidation('father_lname');" maxlength="25">
+                    </div></td>
+                  <td class="fonttable">AADHAAR</td>
+                  <td><div class="medium">
+                      <input name="input" type="text" id="aadharnumber" class="numeric" maxlength="12" placeholder="AADHAAR Number" autocomplete="off" style="width:157px;" onkeypress="return isNumber(event)">
+                    </div></td>
+                </tr>
+              </tbody></table>
+            </div>
+          </div>
+        </div>
+        <div class="tab_main">
+          <div class="tab1_div"><span class="tab-numbering">2</span>CONTACT DETAILS</div>
+          <div class="tab1_div" id="tab_space"><span class="tab-numbering">3</span>DOCUMENT PROOF</div>
+          <div class="tab1_div" id="tab1_space"><span class="tab-numbering">4</span>INCOME SOURCE</div>
+        </div>
+        <div class="section_div">
+          <div class="section_inner_left_div1" style="border:1px solid #CCC;background-color:#FFFFFF">
+            <div class="cont_left">
+              <table border="0" cellspacing="2" cellpadding="2" width="100%">
+                <tbody><tr>
+                  <td class="fonttable">Mobile<span class="mandatory">*</span><span class="tooltip tooltipstered"> <img src="images/help_icon.png" width="19" height="19"></span></td>
+                  <td class="category_pad"><div class="small" style="width:60px;float:left;">
+                      <input name="" type="text" id="" class="numeric" maxlength="7" value="91" style="text-align:center;background-color:#E9E9E9" disabled="disabled" autocomplete="off">
+                    </div>
+                    <div class="medium">
+                      <input type="text" name="input" id="mobilenumber" maxlength="10" placeholder="Mobile No" autocomplete="off" onkeypress="return isNumber(event)">
+                    </div></td>
+                </tr>
+                <tr>
+                  <td class="fonttable">Email ID<span class="mandatory">*</span><span class="tooltip tooltipstered"> <img src="images/help_icon.png" width="19" height="19"></span></td>
+                  <td class="category_pad"><div class="medium">
+                      <input type="text" name="input" id="emailids" placeholder="Email ID" style="width:180px;text-transform:uppercase" autocomplete="off" maxlength="37">
+                    </div></td>
+                </tr>
+                <tr>
+                  <td class="fonttable">Land Line<span class="tooltip tooltipstered"> <img src="images/help_icon.png" width="19" height="19"></span></td>
+                  <td class="category_pad"><div class="small" style="width:60px;float:left;">
+                      <input name="" type="text" id="codenumb" class="numeric" maxlength="7" autocomplete="off" placeholder="STD" onkeypress="return isNumber(event)">
+                    </div>
+                    <div class="medium" style="width:125px;float:left;">
+                      <input name="" type="text" id="codephn" class="numeric" maxlength="10" style="width:120px;" autocomplete="off" placeholder="phone number" onkeypress="return isNumber(event)">
+                    </div></td>
+                </tr>
+                <tr>
+                  <td class="fonttable">Communication<span class="mandatory">*</span></td>
+                  <td class=""><div class="field_items_new" style="font-size:13px"><span class="tooltip tooltipstered"><img src="images/help_icon.png" width="19" height="19"></span>
+                      <input type="radio" name="addressforcom" value="0" id="resid1" onchange="officemandhide();">
+                      <label for="resid1">Residence</label>
+                    </div>
+                    <div class="field_items_new" style="font-size:13px">
+                      <input type="radio" name="addressforcom" value="1" id="resid2" onchange="officemand();">
+                      <label for="resid2">Office</label>
+                    </div></td>
+                </tr>
+              </tbody></table>
+            </div>
+          </div>
+          <div class="section_inner_left_div1 tabbord">
+            <div class="cont_left">
+              <table border="0" cellspacing="2" cellpadding="2">
+                <tbody><tr>
+                  <td class="fonttable">ID Proof<span class="mandatory">*</span></td>
+                  <td class="prof_left category_pad"><div class="medium_1">
+                      <select name="proofofidentity" id="proofofidentity" style="width: 150px; color: rgb(204, 204, 204);" onchange="selchange();replaceprrofid()">
+                        <option value="">Select</option>
+                        <option value="1">Voters Identity Card</option><option value="2">Driving License</option><option value="3">Passport</option><option value="13">Certificate of Identity signed by a Gazetted Officer in prescribed format only</option><option value="14">Certificate of Identity signed by a MP in prescribed format only</option><option value="15">Certificate of Identity signed by a MLA in prescribed format only</option><option value="16">Certificate of Identity signed by a Municipal Councilor in prescribed format only</option><option value="17">Aadhar Card issues by Unique Identification Authority of India</option><option value="18">Ration Card with photograph</option><option value="19">Arms License</option><option value="20">Pensioner Card with Photograph</option><option value="21">Central Government Health Scheme Card</option><option value="22">Ex-servicemen Contributory Heath Scheme photo card</option><option value="24">Photo Identity card issued by the Central Government/State Government/Public Sector Undertaking</option><option value="26">Bank certificate in original on letter head from the branch
+ (along with name and stamp of the issuing officer) containing duly attested photograph and
+  bank account number of the applicant</option>                      </select>
+                    </div></td>
+                </tr>
+                <tr>
+                  <td class="fonttable">Address Proof<span class="mandatory">*</span></td>
+                  <td class="prof_left category_pad"><div class="medium_1">
+                      <select name="proofofresidence" id="proofofresidence" onchange="residchange();replaceproofofresidence()" style="width: 150px; color: rgb(204, 204, 204);">
+                        <option value="">Select</option>
+                        <option value="1">Voters Identity Card</option><option value="2">Driving License</option><option value="3">Passport</option><option value="4">Bank Account Statement</option><option value="5">Credit Card Statement</option><option value="7">Landline telephone or broadband connection bill </option><option value="8">Employer Certificate</option><option value="10">Electricity Bill</option><option value="11">Depository Account Statement</option><option value="13">Certificate of Address signed by a Gazetted Officer in prescribed format only</option><option value="18">Certificate of Address signed by a MP in prescribed format only</option><option value="19">Certificate of Address signed by a MLA in prescribed format only</option><option value="20">Certificate of Address signed by a Municipal Councillor  in prescribed format only</option><option value="21">Aadhar Card issues by Unique Identification Authority of India</option><option value="22">Water Bill</option><option value="23">Consumer Gas Connection Card</option><option value="24">Credit Card Statement</option><option value="26">Passport of the spouse</option><option value="27">Post office pass book </option><option value="29">Domicile Certificate issued by the Government</option><option value="30">Allotment letter of accommodation issued by Central/state Government less than 3 years old</option><option value="31">Property Registration Document</option><option value="32">Latest Property Tax Assessment Order</option><option value="33">Elector's Photo Identity Card</option>                      </select>
+                    </div></td>
+                </tr>
+                <tr>
+                  <td class="fonttable">Date of Birth<span class="mandatory">*</span></td>
+                  <td class="prof_left category_pad"><div class="medium_1">
+                      <select name="dobproof" id="dobproof" onchange="idhange();replaceproofofdob()" style="width: 150px; color: rgb(204, 204, 204);">
+                        <option value="">Select</option>
+                        <option value="1">Birth Certificate issued by the Municipal Authority</option><option value="2">Pension Payment Order</option><option value="3">Marriage certificate issued by Registrar of Marriages</option><option value="4">Matriculation certificate</option><option value="5">Domicile certificate issued </option><option value="6">Affidavit sworn before a magistrate stating the date of birth by the Government</option><option value="7">Driving License</option><option value="8">Passport</option>                      </select>
+                    </div></td>
+                </tr>
+                <tr>
+                  <td class="fonttable " style="padding-bottom:14px;"><span class="ofcadrs">Office Address<span class="mandatory" id="ofcmand" style="display:none;width:5px;">*</span></span></td>
+                  <td class="prof_left category_pad"><select name="proofofoffice" id="proofofoffice" onchange="proofofofficehange()" style="width: 150px; color: rgb(204, 204, 204);" disabled="disabled">
+                      <option value="">Select</option>
+                      <option value="1">Credit Card Statement carrying Office Address </option><option value="2">Bank Account Statement carrying Office Address </option><option value="3">Employer Certificate carrying Office Address </option><option value="4">Electricity Bill carrying Office Address </option><option value="5">Telephone Bill carrying Office Address </option><option value="6">Depository Account Statement carrying Office Address </option><option value="7">Office Property Tax Assessment Order</option><option value="8">Bank Account Statement carrying Office Address </option>                    </select></td>
+                </tr>
+              </tbody></table>
+            </div>
+          </div>
+          <div class="section_inner_left_div1 tabbord" style="">
+            <div class="cont_left">
+              <table border="0" cellspacing="2" cellpadding="2">
+                <tbody><tr>
+                  <td class="fonttable pad_top"><input type="checkbox" name="chksalary" id="chkincome" value="6" onclick="enableincchk()"></td>
+                  <td class="fonttable pad_top category_pad"><label for="chkincome">No Income</label></td>
+                  <td colspan="2" class="fonttable pad_top category_pad" style="padding-top:2px;padding-left:7px;"><select name="annualincome" id="annualincome" class="fonttable" style="width: 140px; color: rgb(204, 204, 204);" onchange="annualincomechange()" disabled="disabled">
+                      <option value="">ANNUAL INCOME</option>
+                      <option value="2">Less Than 3,00,000</option><option value="3">Between 3,00,001 to 5,00,000</option><option value="4">Between 5,00,001 to 8,00,000</option><option value="5">Greater than 8,00,000</option>                    </select></td>
+                </tr>
+                <tr>
+                  <td class="fonttable pad_top"><input type="checkbox" name="chksalary" id="chksalary1" value="1" onclick="enableincome()"></td>
+                  <td class="fonttable pad_top category_pad"><label for="chksalary1">Salary</label></td>
+                  <td class="fonttable pad_top" style="padding-left:7px;"><input type="checkbox" name="chksalary" id="chksalary2" value="3" onclick="enableincome()"></td>
+                  <td class="fonttable pad_top category_pad"><label for="chksalary2">House Property</label></td>
+                </tr>
+                <tr>
+                  <td class="fonttable pad_top"><input type="checkbox" name="chksalary" id="chksalary3" value="2" onclick="showbusinesstypesel(); enableincome()"></td>
+                  <td class="fonttable pad_top category_pad"><label for="chksalary3">Business/Profession </label></td>
+                  <td colspan="2" class="fonttable pad_top category_pad" style="padding-top:2px;padding-left:7px;"><select name="businesscode" id="businesscode" onchange="businesscodechange()" style="width:140px;float:left;color:#C7C7C7" disabled="disabled">
+                      <option value="">BUSINESS TYPE</option>
+                      <option value="1">Medical Profession and Business</option><option value="2">Engineering</option><option value="3">Architecture</option><option value="4">Chartered Accountant / Accountancy</option><option value="5">Interior Decoration</option><option value="6">Technical Consultancy</option><option value="7">Company Secretary</option><option value="8">Legal Practitioner and Solicitors</option><option value="9">Government Contractors</option><option value="10">Insurance Agency</option><option value="11">Films, TV and Such other Entertainment</option><option value="12">Information technology</option><option value="13">Builders and developers</option><option value="14">Members of Stock Exchange, Share Brokers and Sub- Brokers</option><option value="15">Performing Arts and Yatra</option><option value="16">Operation of Ships, Hovercrafts, Aircrafts  or  Helicopters</option><option value="17">Plying Taxies, Lorries, Trucks, Buses or other commercial vehicles</option><option value="18">Ownership of Horses or Jockeys</option><option value="19">Cinema Halls and other theatres</option><option value="20">Others</option>                    </select></td>
+                </tr>
+                <tr>
+                  <td class="fonttable pad_top"><input type="checkbox" name="chksalary" id="chksalary4" value="4" onclick="enableincome()"></td>
+                  <td class="fonttable pad_top category_pad"><label for="chksalary4">Capital Gains</label></td>
+                  <td class="fonttable pad_top" style="padding-left:7px;"><input type="checkbox" name="chksalary" id="chksalary5" value="5" onclick="enableincome()"></td>
+                  <td class="fonttable pad_top category_pad"><label for="chksalary5">Other Sources</label></td>
+                </tr>
+              </tbody></table>
+            </div>
+          </div>
+        </div>
+        <div class="tab1_div tab1_sub"><span class="tab-numbering">5</span>ADDRESS INFORMATION</div>
+        <div class="section_div field_top tabbordadrs">
+          <div class="section_inner_left" style="padding-left:10px;margin-bottom:10px;">
+            <h1>Residence Address <span class="mandatory">*</span><span class="tooltip tooltipstered"> <img src="images/help_icon.png" width="19" height="19"></span></h1>
+            <div class="add_row">
+              <div class="row_left1">Flat/Room/Door/Block No.</div>
+              <div class="large_big">
+                <input name="input" type="text" id="flatroomnoresidence" autocomplete="off" maxlength="25">
+              </div>
+            </div>
+            <div class="add_row">
+              <div class="row_left1">Name of Premises/Building/Village</div>
+              <div class="large_big">
+                <input name="input" type="text" id="premiseresidence" autocomplete="off" maxlength="25">
+              </div>
+            </div>
+            <div class="add_row">
+              <div class="row_left1">Road/Street/Lane/Post Office</div>
+              <div class="large_big">
+                <input name="input" type="text" id="roadstreetresidence" autocomplete="off" maxlength="25">
+              </div>
+            </div>
+            <div class="add_row">
+              <div class="row_left1">Area/Locality/Taluka/Sub-Division</div>
+              <div class="large_big">
+                <input name="input" type="text" id="arealocalityresidence" autocomplete="off" maxlength="25">
+              </div>
+            </div>
+            <div class="add_row">
+              <div class="row_left1">State/Union Territory</div>
+              <div class="large_big">
+                <select name="searchstate" id="searchstate" onchange="getdistrict('districtcodedisplay',this.value);searchstatechange()" onkeyup="getdistrict('districtcodedisplay',this.value);" style="width:203px;color:#C7C7C7">
+                  <option value="">Select</option>
+                  <option value="3">ANDAMAN &amp; NICOBAR ISLANDS</option><option value="4">ANDHRA PRADESH</option><option value="5">ARUNACHAL PRADESH</option><option value="6">ASSAM</option><option value="7">BIHAR</option><option value="8">CHANDIGARH</option><option value="36">CHHATTISGARH</option><option value="10">DADRA &amp; NAGAR HAVELI</option><option value="9">DAMAN &amp; DIU</option><option value="26">DELHI</option><option value="11">GOA</option><option value="12">GUJARAT</option><option value="13">HARYANA</option><option value="14">HIMACHAL PRADESH</option><option value="15">JAMMU &amp; KASHMIR</option><option value="16">JHARKHAND</option><option value="17">KARNATAKA</option><option value="18">KERALA</option><option value="19">LAKSHADWEEP</option><option value="24">MADHYA PRADESH</option><option value="20">MAHARASHTRA</option><option value="21">MANIPUR</option><option value="22">MEGHALAYA</option><option value="23">MIZORAM</option><option value="25">NAGALAND</option><option value="27">ORISSA</option><option value="28">PONDICHERRY</option><option value="29">PUNJAB</option><option value="30">RAJASTHAN</option><option value="31">SIKKIM</option><option value="32">TAMIL NADU</option><option value="33">TRIPURA</option><option value="34">UTTAR PRADESH</option><option value="35">UTTARAKHAND</option><option value="37">WEST BENGAL</option>                </select>
+              </div>
+            </div>
+            <div class="add_row">
+              <div class="row_left1">Town/City/District</div>
+              <div class="large_big">
+                <div id="districtcodedisplay">
+                  <select name="district" class="selectfield" id="district" onchange="districtchange()" style="color:#C7C7C7">
+                    <option value="">Select A State First</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="add_row">
+              <div class="row_left1">Pincode</div>
+              <div class="large_big">
+                <input name="pincoderesidence" type="text" id="pincoderesidence" maxlength="6" class="numeric" autocomplete="off" onkeypress="return isNumber(event)">
+              </div>
+            </div>
+            <div class="add_row">
+              <div class="row_left1">Country</div>
+              <div class="large_big">
+                <input name="input" type="text" id="residence_country" value="INDIA" style="background:rgb(241,241,241)" disabled="disabled">
+              </div>
+            </div>
+          </div>
+          <div class="section_inner_left" style="margin-bottom:10px;">
+            <h1><span class="ofcadrswid">Office Address<span style="font-size:12px" id="opttext"> (Optional)</span> <span class="mandatory" id="mand" style="display:none">*</span></span> <span class="tooltip tooltipstered"> <img src="images/help_icon.png" width="19" height="19" id="ofctoolt"></span></h1>
+            <div class="add_row">
+              <div class="row_left1">Name of Office</div>
+              <div class="large_big">
+                <div class="textfieldread">
+                  <input name="input" type="text" id="nameofofc" autocomplete="off" maxlength="25">
+                </div>
+              </div>
+            </div>
+            <div class="add_row">
+              <div class="row_left1">Flat/Room/Door/Block No.</div>
+              <div class="large_big">
+                <div class="textfieldread">
+                  <input name="input" type="text" id="floorrommno" autocomplete="off" maxlength="25">
+                </div>
+              </div>
+            </div>
+            <div class="add_row">
+              <div class="row_left1 ">Name of Premises/Building/Village</div>
+              <div class="large_big">
+                <div class="textfieldread">
+                  <input name="input" type="text" id="nameofpremis" autocomplete="off" maxlength="25">
+                </div>
+              </div>
+            </div>
+            <div class="add_row">
+              <div class="row_left1">Road/Street/Lane/Post Office</div>
+              <div class="large_big">
+                <div class="textfieldread">
+                  <input name="input" type="text" id="roadstreet" autocomplete="off" maxlength="25">
+                </div>
+              </div>
+            </div>
+            <div class="add_row">
+              <div class="row_left1">Area/Locality/Taluka/Sub-Division</div>
+              <div class="large_big">
+                <div class="textfieldread">
+                  <input name="input" type="text" id="arealocaldiv" autocomplete="off" maxlength="25">
+                </div>
+              </div>
+            </div>
+            <div class="add_row">
+              <div class="row_left1">State/Union Territory</div>
+              <div class="large_big">
+                <div class="textfieldread">
+                  <select name="stateunion" id="stateunion" onchange="getdistrict1('districtcodedisplay1',this.value);stateunionchange()" onkeyup="getdistrict1('districtcodedisplay1',this.value);" style="width:203px;color:#C7C7C7">
+                    <option value="">Select</option>
+                    <option value="3">ANDAMAN &amp; NICOBAR ISLANDS</option><option value="4">ANDHRA PRADESH</option><option value="5">ARUNACHAL PRADESH</option><option value="6">ASSAM</option><option value="7">BIHAR</option><option value="8">CHANDIGARH</option><option value="36">CHHATTISGARH</option><option value="10">DADRA &amp; NAGAR HAVELI</option><option value="9">DAMAN &amp; DIU</option><option value="26">DELHI</option><option value="11">GOA</option><option value="12">GUJARAT</option><option value="13">HARYANA</option><option value="14">HIMACHAL PRADESH</option><option value="15">JAMMU &amp; KASHMIR</option><option value="16">JHARKHAND</option><option value="17">KARNATAKA</option><option value="18">KERALA</option><option value="19">LAKSHADWEEP</option><option value="24">MADHYA PRADESH</option><option value="20">MAHARASHTRA</option><option value="21">MANIPUR</option><option value="22">MEGHALAYA</option><option value="23">MIZORAM</option><option value="25">NAGALAND</option><option value="27">ORISSA</option><option value="28">PONDICHERRY</option><option value="29">PUNJAB</option><option value="30">RAJASTHAN</option><option value="31">SIKKIM</option><option value="32">TAMIL NADU</option><option value="33">TRIPURA</option><option value="34">UTTAR PRADESH</option><option value="35">UTTARAKHAND</option><option value="37">WEST BENGAL</option>                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="add_row">
+              <div class="row_left1">Town/City/District</div>
+              <div class="large_big">
+                <div id="districtcodedisplay1">
+                  <div class="textfieldread">
+                    <select name="towncity" id="towncity" onchange="towncitychange()" style="width:203px;color:#C7C7C7">
+                      <option value="">Select A State First</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="add_row">
+              <div class="row_left1">Pincode</div>
+              <div class="large_big">
+                <div class="textfieldread">
+                  <input name="input" type="text" id="pincodezipcode" class="numeric" maxlength="6" autocomplete="off" onkeypress="return isNumber(event)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section_div field_top">
+          <fieldset style="background-color:#FFFFFF">
+            <legend>REPRESENTATIVE ASSESSEE (RA)</legend>
+            <div class="section_inner">
+              <div style="margin-top:7px;">
+                <div style="width:20px;float:left;">
+                  <input type="checkbox" name="chkincomess1" id="chkincomess1" value="1" onclick="showra()" style="margin-top:3px;">
+                </div>
+                <div class="row_left" style="width:350px;">
+                  <label for="chkincomess1"> Representative Assessee is applicable</label>
+                  <span class="tooltip tooltipstered"> <img src="images/help_icon.png" width="19" height="19"></span></div>
+              </div>
+              <div class="cont_left">
+                <div style="clear:both"></div>
+              </div>
+            </div>
+            <div style="display: block;" class="radiv" id="radiv">
+              <table border="0" cellspacing="2" cellpadding="2">
+                <tbody><tr>
+                  <td colspan="4" class="fonttable pad_left"><!-- <td class="fonttable pad_left">Title</td>-->
+                    
+                    <div style="width:50px;float:left">Title<span class="mandatory" id="repmand2" style="display:none">*</span></div>
+                    <div class="field_items_2">
+                      <input type="radio" name="rstitle" value="Shri" id="shri1">
+                      <label for="shri1" style="cursor:pointer">Shri</label>
+                    </div>
+                    <div class="field_items_2">
+                      <input type="radio" name="rstitle" value="Smt." id="shri2">
+                      <label for="shri2">Smt</label>
+                      .</div>
+                    <div class="field_items_2">
+                      <input type="radio" name="rstitle" value="Kumari" id="shri3">
+                      <label for="shri3">Kumari</label>
+                    </div>
+                    <div style="width:50px;float:left" class="fonttable ranames">Name <span class="mandatory" id="repmand1" style="display:none">*</span></div>
+                    <div class="medium">
+                      <input name="rafirstname" id="rafirstname" placeholder="First Name" type="text" class="txtup" onchange="upperMe('rafirstname')" autocomplete="off" style="margin-left:12px" onkeypress="return lettersOnly(event)" onblur="initialvalidation('rafirstname');" maxlength="25">
+                    </div>
+                    <div class="medium">
+                      <input name="ramiddlename" id="ramiddlename" placeholder="Middle Name" type="text" class="txtup" onchange="upperMe('ramiddlename')" autocomplete="off" onkeypress="return lettersOnly(event)" onblur="initialvalidation('ramiddlename');" maxlength="25">
+                    </div>
+                    <div class="mediumfield">
+                      <input name="ralastname" id="ralastname" placeholder="Last Name" type="text" class="txtup" onchange="upperMe('ralastname')" autocomplete="off" style="text-transform:uppercase" onkeypress="return lettersOnly(event)" onblur="initialvalidation('ralastname');" maxlength="25">
+                    </div></td>
+                </tr>
+                <tr>
+                  <td class="fonttable pad_left" style="width:240px;">Flat/Room/Door/Block No.<span class="mandatory" id="repmand3" style="display:none">*</span></td>
+                  <td class="pad_left"><div class="large_big">
+                      <input name="input" type="text" id="ra_flatroom" autocomplete="off" maxlength="25">
+                    </div></td>
+                  <td class="fonttable  pad_left" style="width:240px;">Name of Premises/Building/Village<span class="mandatory" id="repmand4" style="display:none">*</span></td>
+                  <td class="pad_left"><div class="large_big">
+                      <input name="input" type="text" id="ra_premise" autocomplete="off" maxlength="25">
+                    </div></td>
+                </tr>
+                <tr>
+                  <td class="fonttable pad_left">Road/Street/Lane/Post Office<span class="mandatory" id="repmand5" style="display:none">*</span></td>
+                  <td class="pad_left"><div class="large_big">
+                      <input name="input" type="text" id="ra_roadstreet" autocomplete="off" maxlength="25">
+                    </div></td>
+                  <td class="fonttable pad_left">Area/Locality/Taluka/Sub-Division<span class="mandatory" id="repmand6" style="display:none">*</span></td>
+                  <td class="pad_left"><div class="large_big">
+                      <input name="input" type="text" id="ra_area" autocomplete="off" maxlength="25">
+                    </div></td>
+                </tr>
+                <tr>
+                  <td class="fonttable pad_left">State/Union Territory<span class="mandatory" id="repmand7" style="display:none">*</span></td>
+                  <td class="pad_left"><div class="large_big">
+                      <select name="stateunion1" id="stateunion1" onchange="getdistrict2('districtcodedisplay2',this.value);stateunion1change()" onkeyup="getdistrict2('districtcodedisplay2',this.value);" style="width:203px;color:#CCC">
+                        <option value="">Select</option>
+                        <option value="3">ANDAMAN &amp; NICOBAR ISLANDS</option><option value="4">ANDHRA PRADESH</option><option value="5">ARUNACHAL PRADESH</option><option value="6">ASSAM</option><option value="7">BIHAR</option><option value="8">CHANDIGARH</option><option value="36">CHHATTISGARH</option><option value="10">DADRA &amp; NAGAR HAVELI</option><option value="9">DAMAN &amp; DIU</option><option value="26">DELHI</option><option value="11">GOA</option><option value="12">GUJARAT</option><option value="13">HARYANA</option><option value="14">HIMACHAL PRADESH</option><option value="15">JAMMU &amp; KASHMIR</option><option value="16">JHARKHAND</option><option value="17">KARNATAKA</option><option value="18">KERALA</option><option value="19">LAKSHADWEEP</option><option value="24">MADHYA PRADESH</option><option value="20">MAHARASHTRA</option><option value="21">MANIPUR</option><option value="22">MEGHALAYA</option><option value="23">MIZORAM</option><option value="25">NAGALAND</option><option value="27">ORISSA</option><option value="28">PONDICHERRY</option><option value="29">PUNJAB</option><option value="30">RAJASTHAN</option><option value="31">SIKKIM</option><option value="32">TAMIL NADU</option><option value="33">TRIPURA</option><option value="34">UTTAR PRADESH</option><option value="35">UTTARAKHAND</option><option value="37">WEST BENGAL</option>                      </select>
+                    </div></td>
+                  <td class="fonttable pad_left">Town/City/District<span class="mandatory" id="repmand8" style="display:none">*</span></td>
+                  <td class="pad_left"><div class="large_big">
+                      <div id="districtcodedisplay2">
+                        <select name="towncity2" id="towncity2" style="width:203px;color:#CCC">
+                          <option value="">Select A State First</option>
+                        </select>
+                      </div>
+                    </div></td>
+                </tr>
+                <tr>
+                  <td class="fonttable pad_left">Pincode<span class="mandatory" id="repmand9" style="display:none">*</span></td>
+                  <td class="pad_left"><div class="large_big">
+                      <input name="input" type="text" id="ra_pinzip" class="numeric" maxlength="6" autocomplete="off" onkeypress="return isNumber(event)">
+                    </div></td>
+                  <td class="fonttable pad_left">Country</td>
+                  <td class="pad_left"><div class="large_big">
+                      <input name="input" type="text" id="ra_country" value="INDIA" disabled="disabled" style="background-color:#F1F1F1" autocomplete="off">
+                    </div></td>
+                </tr>
+              </tbody></table>
+            </div>
+          </fieldset>
+        </div>
+        <div class="section_div">
+          <div class="section_inner_new">
+            <div class="declaration">DECLARATION</div>
+            <div class="cont_left" style="width:97%;margin-bottom:10px;margin-top:10px;margin-left:5px;font-size:13px;">
+              <p>I have enclosed <span id="blankline">________________________ </span><span id="prfid" style="text-decoration: underline; display: none;"></span> as proof of identity, <span id="blankline1">________________________</span> <span id="prfid1" style="text-decoration: underline; display: none;"></span> as proof of address and <span id="blankline2">________________________</span><span id="prfid3" style="text-decoration: underline; display: none;"></span> as proof of date of birth.</p>
+              <br>
+              I <span id="namepapplicantblank">________________________</span><span id="namepapplicant" style="text-decoration: underline; display: none;"></span>, the applicant, in the capacity of  do hereby declare that what is stated above is true to the best of my information and belief.
+              <p></p>
+            </div>
+            <div class="today_date">
+              <div class="date" style="padding-left:14px;padding-top:5px;">Date: 3-Mar-2015</div>
+            </div>
+            <div style="width:780px;float:left;margin-bottom:10px;height:38px;">
+              <p class="field_items_large" id="cityres" style="width:110px;padding-top:5px;">City of residence 
+              </p>
+                <p><span id="blankline6">________________________</span> <span id="cityid1" style="text-decoration: underline; display: none;"> </span></p>
+           
+              <div class="submit-reset">
+                <input type="hidden" name="customerid" id="customerid">
+                <input type="hidden" value="true" id="flag" name="flag">
+                <div class="buy-learn-buttons" id="declarebuttons"> <a class="buy" onclick="return formsubmit()" style="cursor:pointer">Submit</a> <a class="learn" onclick="resetvalues()" style="cursor:pointer">Reset</a> </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+</asp:Content>

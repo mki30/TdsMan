@@ -1,0 +1,40 @@
+databse-c:\Users\RRA\AppData\Local\VirtualStore\Program Files (x86)\TDSMAN FY 2014-15(trial)\
+My PAN-ENMPS2508J
+
+RRAPAN- AANFR0635B
+RRA TAN-MRTR03328D
+Token No-082760100000023
+UserID-rra2011
+Pass-Dublin2008
+
+PRADEEP PAL - BLLPP2207B
+TUSHAR BISHT - BUDPB1089E
+SUNIL KUMAR - CRWPK1976L
+ROHIT NAGAR - ARLPN8044R
+MONIKA SHARMA - DKYPS7103D
+BHAWNA - BPIPB5905H
+KAPIL SHARMA - DNRPS3798L
+Pradeep Pal- 22/10/1990
+Tushar = 07/07/1994
+Sunil - 11/04/1986
+Rohit - 09/12/1985
+Monika - 21/07/1990
+Bhawna - 15/01/1990
+Kapil = 11/07/1992
+
+
+
+trID: 07220712300809201419
+Compnay
+-----------
+1-Branch not saved-fixed
+2-should change state,ministry fields to varchar? to save corresponding chars like (A,B,C)
+
+Deductee
+-------------
+1-should change state fields to varchar?
+
+Employee-
+------------
+1-Removed table headers if no employee avl
+

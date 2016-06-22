@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8442be922d174d6384eaf6d4c8a087c4" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="TDSModel.ChallanCorrection" Width="1.5" PointX="5.375" PointY="0.5" />
+        <EntityTypeShape EntityType="TDSModel.ChallanDetailCorrection" Width="1.5" PointX="2" PointY="3.25" />
+        <EntityTypeShape EntityType="TDSModel.EmployeeSalary" Width="1.5" PointX="13.75" PointY="5.5" />
+        <EntityTypeShape EntityType="TDSModel.EmployeeSalaryDetail" Width="1.5" PointX="3.75" PointY="0.5" />
+        <EntityTypeShape EntityType="TDSModel.IncomeExpense" Width="1.5" PointX="7.125" PointY="11.625" />
+        <EntityTypeShape EntityType="TDSModel.License" Width="1.5" PointX="7.125" PointY="8.75" />
+        <EntityTypeShape EntityType="TDSModel.MST_ASSESSMENT" Width="1.5" PointX="5.375" PointY="6.375" />
+        <EntityTypeShape EntityType="TDSModel.MST_COMPANY" Width="1.5" PointX="5.5" PointY="9.875" />
+        <EntityTypeShape EntityType="TDSModel.MST_DEDUCTEE" Width="1.5" PointX="13.75" PointY="0.5" />
+        <EntityTypeShape EntityType="TDSModel.MST_EMPLOYEE" Width="1.5" PointX="8.75" PointY="0.5" />
+        <EntityTypeShape EntityType="TDSModel.RegularReturnCorrection" Width="1.5" PointX="8.75" PointY="4.5" />
+        <EntityTypeShape EntityType="TDSModel.TRN_BASIC_INFO" Width="1.5" PointX="3.75" PointY="3" />
+        <EntityTypeShape EntityType="TDSModel.TRN_CHALLAN" Width="1.5" PointX="7.125" PointY="0.5" />
+        <EntityTypeShape EntityType="TDSModel.TRN_COMPANY_INFO" Width="1.5" PointX="10.375" PointY="8.5" />
+        <EntityTypeShape EntityType="TDSModel.TRN_DEDUCTEE_DETAILS" Width="1.5" PointX="10.375" PointY="0.5" />
+        <EntityTypeShape EntityType="TDSModel.User" Width="1.5" PointX="3.75" PointY="8" />
+        <EntityTypeShape EntityType="TDSModel.TRN_SALARY_DETAILS" Width="1.5" PointX="12" PointY="0.5" />
+        <EntityTypeShape EntityType="TDSModel.Contact" Width="1.5" PointX="13.75" PointY="9.25" />
+        <EntityTypeShape EntityType="TDSModel.Payment" Width="1.5" PointX="1.9793681288041958" PointY="0.054879665400311195" />
+        <EntityTypeShape EntityType="TDSModel.SalaryDetail" Width="1.5" PointX="15.5" PointY="0.5" />
+        <EntityTypeShape EntityType="TDSModel.Company" Width="1.5" PointX="3.75" PointY="12.75" />
+        <EntityTypeShape EntityType="TDSModel.UserCompanyLink" Width="1.5" PointX="3.75" PointY="10.875" />
+        <EntityTypeShape EntityType="TDSModel.SellBusiness" Width="1.5" PointX="13.75" PointY="12.625" />
+        <EntityTypeShape EntityType="TDSModel.Note" Width="1.5" PointX="3.75" PointY="18.125" />
+        <EntityTypeShape EntityType="TDSModel.Stage" Width="1.5" PointX="3.75" PointY="15" />
+        <EntityTypeShape EntityType="TDSModel.PanDetail" Width="1.5" PointX="2" PointY="8.625" />
+        <EntityTypeShape EntityType="TDSModel.BusinessRequest" Width="1.5" PointX="15.5" PointY="16.125" />
+        <EntityTypeShape EntityType="TDSModel.PanVerification" Width="1.5" PointX="8.75" PointY="18" />
+        <EntityTypeShape EntityType="TDSModel.DscDetail" Width="1.5" PointX="7.125" PointY="14.75" />
+        <EntityTypeShape EntityType="TDSModel.PanTransaction" Width="1.5" PointX="1.8605631337783128" PointY="15.265639803961683" />
+        <EntityTypeShape EntityType="TDSModel.PanTransactionVerified" Width="1.5" PointX="10.775358773197681" PointY="26.845947561248181" />
+        <EntityTypeShape EntityType="TDSModel.KnowledgePortal" Width="1.5" PointX="3.6357032748105489" PointY="5.9399432418588285" />
+        <EntityTypeShape EntityType="TDSModel.TanDetail" Width="1.5" PointX="2.7116690756341764" PointY="30.307034938739164" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

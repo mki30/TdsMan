@@ -1,0 +1,44 @@
+
+total commander-
+text search
+
+alt+F7 then alt+T then alt+F3 the alt+F3...
+
+----------------------
+Quick Watch - Shift+f9
+
+Find and Replace-
+ctrl+H  tab n then alt+R
+ctrl+shift+H    shows   detailed view 
+
+
+
+ctrl+shift+F2 - back to previous position in vs.
+ctr+-         - back to calling funcion.
+alt+E+G       -Go to line mumbers in vs.
+
+
+
+Copy-
+
+CTRL+C or CTRL+INSERT
+
+Paste-
+
+CTRL+V or SHIFT+INS.
+
+Cut-
+
+CTRL+X or SHIFT+DELETE.
+
+
+...Linking table..
+
+crome sortcuts-
+
+ctr+N -open anew tab  in new window
+ctr+T  -open a new tab
+ctr+Tab -go to next tab
+ctr+shft+tab -go to previous tab
+ctr+F4 -close curent tab
+
